@@ -123,7 +123,7 @@ TENTATIVE_MODEL_PATHS: set[str] = {
 }
 
 # 결과 저장 시 장문으로 간주할 토큰 임계 (PLAN.md §하이브리드)
-RAW_TOKEN_THRESHOLD: int = 500
+RAW_TOKEN_THRESHOLD: int = 0
 
 
 # =============================================================================
