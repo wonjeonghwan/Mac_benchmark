@@ -1,0 +1,5 @@
+mlx-lm>=0.20
+httpx>=0.27
+pypdf>=4.0
+huggingface_hub>=0.24
+hf_transfer>=0.1.6

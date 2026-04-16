@@ -1,0 +1,38 @@
+{
+  "level": 2,
+  "description": "논리 추론 — 지속 TPS, CPU/GPU 점유, 스로틀링 측정. L2_001은 Phase B 동시성 테스트에서 고정 프롬프트로 재사용됨.",
+  "items": [
+    {
+      "id": "L2_001",
+      "question": "한 상자에 사과가 24개 들어있고, 창고에는 이런 상자가 17개 있습니다. 상자 중 3개는 상자당 사과 2개가 상해서 버려야 합니다. 판매 가능한 사과는 총 몇 개인가요? 계산 과정을 단계별로 보여주고 마지막에 답을 제시하세요.",
+      "expected": "402",
+      "rubric": null,
+      "max_tokens": 6144,
+      "context": null,
+      "phase_b_fixed": true
+    },
+    {
+      "id": "L2_002",
+      "question": "다음 전제로부터 결론을 도출하고, 도출 과정을 논리 규칙 이름과 함께 설명하세요.\n\n전제 1: 모든 포유류는 척추동물이다.\n전제 2: 모든 고래는 포유류이다.\n전제 3: 어떤 척추동물은 바다에 살지 않는다.\n\n(a) 고래는 척추동물인가? (b) '어떤 고래는 바다에 살지 않는다'는 결론이 필연적으로 참인가? 이유를 설명하세요.",
+      "expected": null,
+      "rubric": [
+        "a의 답이 '참/예'이고 삼단논법(barbara) 언급",
+        "b의 답이 '아니다/필연적이지 않다'이고 전제 3은 척추동물 전체에 대한 진술이지 고래에 국한되지 않음을 지적"
+      ],
+      "max_tokens": 6144,
+      "context": null
+    },
+    {
+      "id": "L2_003",
+      "question": "다음 Python 코드에는 두 가지 버그가 있습니다. 각 버그의 위치와 원인을 설명하고 수정된 코드를 제시하세요.\n\n```python\ndef average(nums):\n    total = 0\n    for i in range(len(nums)):\n        total += nums[i]\n    return total / len(nums) + 1\n\nprint(average([]))\nprint(average([1, 2, 3, 4]))\n```",
+      "expected": null,
+      "rubric": [
+        "버그 1: 빈 리스트 입력 시 ZeroDivisionError (len(nums)==0)",
+        "버그 2: 연산자 우선순위 — return total / len(nums) + 1 은 (total/len) + 1 이 됨. 의도가 평균이면 +1 제거, 의도가 (total)/(len+1) 이면 괄호 필요",
+        "수정 코드 제시"
+      ],
+      "max_tokens": 6144,
+      "context": null
+    }
+  ]
+}

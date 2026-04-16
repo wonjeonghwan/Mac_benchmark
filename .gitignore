@@ -1,0 +1,25 @@
+.venv/
+__pycache__/
+*.pyc
+
+# Per-run 결과 폴더: results/{hostname}_{YYYYMMDD_HHMMSS}/ 전체 제외
+results/*/
+
+# 과거 평면 파일 구조 (하위 호환)
+results/*.jsonl
+results/*.log
+results/*.json
+results/*.md
+results/raw/
+results/charts/
+
+# 유일한 예외: 4대 통합 비교 리포트 + 차트 폴더 (merge_results.py 산출물)
+!results/COMPARISON.md
+!results/charts/
+
+.DS_Store
+*.bak.*
+tools/_tmp/
+
+# 로컬 세션 노트 (YYYY-MM-DD_*.md) — git 배포 대상 아님
+20[0-9][0-9]-[0-9][0-9]-[0-9][0-9]_*.md

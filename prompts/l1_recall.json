@@ -1,0 +1,30 @@
+{
+  "level": 1,
+  "description": "단순 회상 — TTFT / 초기 로딩 측정",
+  "items": [
+    {
+      "id": "L1_001",
+      "question": "대한민국의 수도는 어디인가요? 한 단어로만 답하세요.",
+      "expected": "서울",
+      "rubric": null,
+      "max_tokens": 2048,
+      "context": null
+    },
+    {
+      "id": "L1_002",
+      "question": "물의 화학식은 무엇인가요? 기호만 답하세요.",
+      "expected": "H2O",
+      "rubric": null,
+      "max_tokens": 2048,
+      "context": null
+    },
+    {
+      "id": "L1_003",
+      "question": "1년은 몇 개월인가요? 숫자만 답하세요.",
+      "expected": "12",
+      "rubric": null,
+      "max_tokens": 2048,
+      "context": null
+    }
+  ]
+}

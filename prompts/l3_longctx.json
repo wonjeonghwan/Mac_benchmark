@@ -1,0 +1,60 @@
+{
+  "level": 3,
+  "description": "장문 맥락 — prefill 속도, DRAM 피크, KV cache 압박 측정. 동일 출처(삼성전자 2024 기업지배구조 보고서)의 다른 섹션을 다른 분량으로 분할 사용.",
+  "source": {
+    "title": "삼성전자 2024 기업지배구조 보고서",
+    "url": "https://images.samsung.com/kdp/ir/corporate-governance-report/Corporate_Governance_fy_2024_kor.pdf",
+    "extraction": "pypdf → pdfplumber (fallback)",
+    "contexts_dir": "prompts/contexts/"
+  },
+  "_todo": "Step 2b에서 pypdf로 PDF 추출 → 아래 context_file 경로에 .md 생성. context 필드는 Step 2b 이후에도 비워두고, load_prompts()가 context_file을 읽어 주입.",
+  "items": [
+    {
+      "id": "L3_001",
+      "question": "다음 문서를 읽고 2024년 삼성전자 이사회 운영 현황을 5문장 이내로 요약하세요. 이사회 개최 횟수, 주요 안건 수, 사외이사 비율 등 구체적 수치를 반드시 포함하세요.",
+      "expected": null,
+      "rubric": [
+        "5문장 이내 지시 이행",
+        "구체적 수치 3개 이상 포함 (개최 횟수·안건 수·사외이사 비율 등)",
+        "수치의 원문 정확성",
+        "핵심 주장(지배구조 구성·의사결정) 누락 없음"
+      ],
+      "max_tokens": 12288,
+      "context_file": "contexts/samsung_governance_2024_sec3.md",
+      "context_size_tokens": 6000,
+      "context": null
+    },
+    {
+      "id": "L3_002",
+      "question": "다음 문서에서 아래 정보를 JSON 객체로 추출하세요. 키: `directors` (이사 전원 배열, 각 요소는 {name, role, appointed_year}), `committees` (위원회 배열, 각 요소는 {name, members}), `meeting_dates` (이사회/감사위원회 개최 일자 배열, ISO 8601 형식). 중복 제거. 순수 JSON 만 반환 (설명 텍스트 금지).",
+      "expected": null,
+      "rubric": [
+        "JSON 파싱 가능 (유효 형식)",
+        "세 키(directors, committees, meeting_dates) 모두 존재",
+        "directors 전원 누락 없음",
+        "중복 제거 이행",
+        "설명 텍스트 없이 JSON만 반환"
+      ],
+      "max_tokens": 12288,
+      "context_file": "contexts/samsung_governance_2024_sec3_4.md",
+      "context_size_tokens": 12000,
+      "context": null
+    },
+    {
+      "id": "L3_003",
+      "question": "다음 문서를 읽고 삼성전자 지배구조를 '주주', '이사회', '감사기구' 세 축으로 나눠 각 축의 (1) 역할, (2) 구성, (3) 의사결정 범위, (4) 2024년 주요 변화를 마크다운 표로 정리하세요. 열 4개 × 행 3개 구조.",
+      "expected": null,
+      "rubric": [
+        "표 형식 준수 (마크다운 파이프 테이블)",
+        "3개 축(주주·이사회·감사기구) 모두 포함",
+        "4개 열(역할·구성·의사결정·변화) 모두 채움",
+        "각 셀 내용의 원문 정합성",
+        "참조 누락 없음 (중요 위원회/이사 포함)"
+      ],
+      "max_tokens": 12288,
+      "context_file": "contexts/samsung_governance_2024_full.md",
+      "context_size_tokens": 28000,
+      "context": null
+    }
+  ]
+}
